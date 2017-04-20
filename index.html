@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React + ReactDOM</title>
+</head>
+<body>
+    <h1>React + ReactDOM</h1>
+
+    <!-- The element into which ReactDOM will render HTML -->
+    <div id="target"></div>
+
+    <!-- References to the React and ReactDOM libraries -->
+    <script src="vendor/react/15.5.4/react.js"></script>
+    <script src="vendor/react/15.5.4/react-dom.js"></script>
+
+    <!-- A script that uses the React and ReactDOM libraries -->
+    <script>
+        // This script contains JavaScript code only (i.e. it doesn't contain any JSX code).
+        // Because of that, performing JSX-to-JavaScript translation (e.g. using Babel) is unnecessary.
+        //
+        // However, this script does contain JavaScript's "class" keyword, which was introduced into the language in version ES6 (ES2015) of the language.
+        // Some web browsers (you can see a list at the URL below) don't support JavaScript's "class" keyword yet.
+        // URL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Browser_compatibility
+
+        // Define a custom component
+        class MyComponent extends React.Component {
+            render() {
+                return React.createElement(
+                    "span",
+                    null,
+                    "Hello ",
+                    this.props.myProp
+                );
+            }
+        }
+
+        ReactDOM.render(
+            React.createElement(MyComponent, {myProp: "World"}),
+            document.getElementById("target")
+        );
+    </script>
+</body>
+</html>
